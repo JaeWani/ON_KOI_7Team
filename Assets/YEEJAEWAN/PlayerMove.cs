@@ -24,17 +24,12 @@ public class PlayerMove : MonoBehaviour
     }
     void Move()
     {
-        //Move by Key
         float h = Input.GetAxisRaw("Horizontal");
         RB.AddForce(Vector2.right * h, ForceMode2D.Impulse);
-
-        //Max speed Right
-        if (RB.velocity.x > PlayerSpeed)  //오른쪽으로 이동 (+) , 최대 속력을 넘으면 
-            RB.velocity = new Vector2(PlayerSpeed, RB.velocity.y); //해당 오브젝트의 속력은 maxSpeed 
-
-        //Max speed left
-        else if (RB.velocity.x < PlayerSpeed * (-1)) // 왼쪽으로 이동 (-) 
-            RB.velocity = new Vector2(PlayerSpeed * (-1), RB.velocity.y); //y값은 점프의 영향이므로 0으로 제한을 두
+        if (RB.velocity.x > PlayerSpeed)  
+            RB.velocity = new Vector2(PlayerSpeed, RB.velocity.y); 
+        else if (RB.velocity.x < PlayerSpeed * (-1)) 
+            RB.velocity = new Vector2(PlayerSpeed * (-1), RB.velocity.y); 
     }
     void Jump() 
     {
