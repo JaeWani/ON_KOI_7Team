@@ -1,12 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+
+
+
     [SerializeField]
     float TimeCounts = 5;
+    [SerializeField]
+    Text TimeCountText;
 
+    public int DaySecondCounts = 0;
+    public int NightSecondCounts = 0;
 
     public bool IsDay = false;
     public bool IsNight = false;
@@ -23,6 +31,7 @@ public class GameManager : MonoBehaviour
         IsDay = true;
         IsNight = false;
         StartCoroutine(TimeCount());
+        StartCoroutine(UI());
     }
 
     void Update()
@@ -32,10 +41,17 @@ public class GameManager : MonoBehaviour
     void ChangeBackGrounds() 
     {
         if (IsDay == true && IsNight == false)
+        {
             BackGrounds.sprite = DayBackGround;
+            TimeCountText.text = "시간  :  " + DaySecondCounts;
+
+        }
 
         else if (IsDay == false && IsNight == true)
+        {
             BackGrounds.sprite = NightBackGround;
+            TimeCountText.text = "시간  :  " + NightSecondCounts;
+        }
     }
     IEnumerator TimeCount()
     {
@@ -46,5 +62,21 @@ public class GameManager : MonoBehaviour
         IsDay = true;
         IsNight = false;
         StartCoroutine(TimeCount());
+    }
+    IEnumerator UI() 
+    {
+        yield return new WaitForSecondsRealtime(1);
+        if (IsDay == true)
+            DaySecondCounts++;
+        else if (IsDay == false)
+            DaySecondCounts = 0;
+
+        if (IsNight == true)
+            NightSecondCounts++;
+        else if (IsNight == false)
+            NightSecondCounts = 0;
+
+            StartCoroutine(UI());
+        
     }
 }
