@@ -4,28 +4,102 @@ using UnityEngine;
 
 public class PlayerMove_1 : MonoBehaviour
 {
-    public float moveSpeed = 3.0f;
-    Rigidbody2D rb;
-    public static float JumpPower = 5f;
+    public float PlayerSpeed = 5;
+    public static float JumpPower = 5;
+    Rigidbody2D RB;
+    SpriteRenderer Spr;
 
+    public bool IsGlass = false;
+    public static bool IsHide = false;
+    bool Jumped = false;
     void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
+        RB = GetComponent<Rigidbody2D>();
+        Spr = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.LeftArrow))
+        Jump();
+        Move();
+        Hide();
+    }
+    void FixedUpdate()
+    {
+
+    }
+    void Move()
+    {
+        float h = Input.GetAxisRaw("Horizontal");
+        RB.AddForce(Vector2.right * h, ForceMode2D.Impulse);
+        if (RB.velocity.x > PlayerSpeed)
+            RB.velocity = new Vector2(PlayerSpeed, RB.velocity.y);
+        else if (RB.velocity.x < PlayerSpeed * (-1))
+            RB.velocity = new Vector2(PlayerSpeed * (-1), RB.velocity.y);
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            transform.Translate(Vector3.left * moveSpeed * Time.deltaTime);
+            Spr.flipX = false;
         }
-        if (Input.GetKey(KeyCode.RightArrow))
+        else if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            transform.Translate(Vector3.right * moveSpeed * Time.deltaTime);
+            Spr.flipX = true;
         }
-        if (Input.GetKey("space"))
+    }
+    void Hide()
+    {
+
+        if (IsGlass == true && Input.GetKeyDown(KeyCode.Q))
         {
-            rb.velocity = Vector2.up * JumpPower;
+            Glass.Sprr.sortingLayerName = "Glasss";
+            Debug.Log("ÀÛµ¿Áß!!");
+            IsHide = true;
         }
+        else if (IsGlass == true && Input.GetKeyDown(KeyCode.E))
+        {
+            Glass.Sprr.sortingLayerName = "Default";
+            IsHide = false;
+        }
+        else if (IsGlass == false)
+        {
+            Glass.Sprr.sortingLayerName = "Default";
+            IsHide = false;
+        }
+
+    }
+
+    void Jump()
+    {
+        if (Input.GetKeyDown(KeyCode.UpArrow) && Jumped == false)
+        {
+            RB.AddForce(Vector2.up * JumpPower, ForceMode2D.Force);
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Floor")
+        {
+            Jumped = true;
+        }
+    }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Floor")
+        {
+            Jumped = false;
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Glass")
+            IsGlass = true;
+    }
+
+
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Glass")
+            IsGlass = false;
     }
 }
