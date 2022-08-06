@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour
 
 
     [SerializeField]
-    float TimeCounts = 5;
+    float TimeCounts = 10;
     [SerializeField]
     Text TimeCountText;
 
@@ -28,6 +28,7 @@ public class GameManager : MonoBehaviour
     Sprite NightBackGround;
     void Start()
     {
+        TimeCounts = 10;
         IsDay = true;
         IsNight = false;
         StartCoroutine(TimeCount());
@@ -43,14 +44,14 @@ public class GameManager : MonoBehaviour
         if (IsDay == true && IsNight == false)
         {
             BackGrounds.sprite = DayBackGround;
-            TimeCountText.text = "시간  :  " + DaySecondCounts;
+            TimeCountText.text = "밤까지 남은 시간  :  " + DaySecondCounts;
 
         }
 
         else if (IsDay == false && IsNight == true)
         {
             BackGrounds.sprite = NightBackGround;
-            TimeCountText.text = "시간  :  " + NightSecondCounts;
+            TimeCountText.text = "낮까지 남은 시간  :  " + NightSecondCounts;
         }
     }
     IEnumerator TimeCount()
