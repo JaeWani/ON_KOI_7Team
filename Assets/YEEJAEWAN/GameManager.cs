@@ -5,8 +5,11 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField]
+    GameObject Wolf;
 
-
+    [SerializeField]
+    Transform Position;
 
     [SerializeField]
     float TimeCounts = 10;
@@ -16,8 +19,8 @@ public class GameManager : MonoBehaviour
     public int DaySecondCounts = 0;
     public int NightSecondCounts = 0;
 
-    public bool IsDay = false;
-    public bool IsNight = false;
+    public static bool IsDay = false;
+    public static bool IsNight = false;
 
     [SerializeField]
     SpriteRenderer BackGrounds;
@@ -34,10 +37,17 @@ public class GameManager : MonoBehaviour
         StartCoroutine(TimeCount());
         StartCoroutine(UI());
     }
-
+    void SpawnWolf() 
+    {
+        if (IsDay == false && IsNight == true) 
+        {
+            Instantiate(Wolf,Position);
+        }
+    }
     void Update()
     {
         ChangeBackGrounds();
+       
     }
     void ChangeBackGrounds() 
     {
@@ -45,7 +55,6 @@ public class GameManager : MonoBehaviour
         {
             BackGrounds.sprite = DayBackGround;
             TimeCountText.text = "밤까지 남은 시간  :  " + DaySecondCounts;
-
         }
 
         else if (IsDay == false && IsNight == true)
@@ -59,6 +68,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSecondsRealtime(TimeCounts);
         IsDay = false;
         IsNight = true;
+        SpawnWolf();
         yield return new WaitForSecondsRealtime(TimeCounts);
         IsDay = true;
         IsNight = false;

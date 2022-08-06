@@ -9,8 +9,8 @@ public class PlayerMove : MonoBehaviour
     Rigidbody2D RB;
     SpriteRenderer Spr;
 
+    public bool IsGlass = false;
     public bool IsHide = false;
-
     bool Jumped = false;
     void Start()
     {
@@ -48,18 +48,21 @@ public class PlayerMove : MonoBehaviour
     void Hide() 
     {
 
-        if (IsHide == true && Input.GetKeyDown(KeyCode.Q))
+        if (IsGlass == true && Input.GetKeyDown(KeyCode.Q))
         {
             Glass.Sprr.sortingLayerName = "Glasss";
             Debug.Log("¿€µø¡ﬂ!!");
+            IsHide = true;
         }
-        else if (IsHide == true && Input.GetKeyDown(KeyCode.E)) 
+        else if (IsGlass == true && Input.GetKeyDown(KeyCode.E)) 
         {
             Glass.Sprr.sortingLayerName = "Default";
+            IsHide = false;
         }
-        else if (IsHide == false)
+        else if (IsGlass == false)
         {
             Glass.Sprr.sortingLayerName = "Default";
+            IsHide = false;
         }
         
     }
@@ -89,7 +92,7 @@ public class PlayerMove : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Glass")
-            IsHide = true;
+            IsGlass = true;
     }
 
 
@@ -97,7 +100,7 @@ public class PlayerMove : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Glass")
-            IsHide = false;
+            IsGlass = false;
     }
 
 }
