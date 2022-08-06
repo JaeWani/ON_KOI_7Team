@@ -29,6 +29,7 @@ public class WolfAi : MonoBehaviour
     void Update()
     {
         Ai();
+        Destroy();
     }
     void Ai()
     {
@@ -51,6 +52,13 @@ public class WolfAi : MonoBehaviour
         
     }
 
+    void Destroy()
+    {
+        if (GameManager.IsDay == true) 
+        {
+            Destroy(this.gameObject);
+        }
+    }
     public IEnumerator Think()
     {
         nextMove = Random.Range(-1, 2);
