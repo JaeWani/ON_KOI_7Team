@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class WolfAi : MonoBehaviour
 {
+
+    Animator Anim;
     Rigidbody2D rigid;
     public int nextMove;
     Transform target;
     bool Airaycast = false;
+    SpriteRenderer Spr;
 
     [Header("추격 속도")]
     [SerializeField] [Range(1f, 4f)] public float moveSpeed = 1f;
@@ -19,6 +22,7 @@ public class WolfAi : MonoBehaviour
     {
         rigid = GetComponent<Rigidbody2D>();
         rigid.freezeRotation = true;
+        Anim = GetComponent<Animator>();
     }
 
     private void Start()
@@ -51,6 +55,7 @@ public class WolfAi : MonoBehaviour
         
         
     }
+  
 
     void Destroy()
     {

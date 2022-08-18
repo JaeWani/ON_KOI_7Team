@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+
+    [SerializeField]
+    RectTransform Chim;
+
     [SerializeField]
     GameObject Wolf;
 
@@ -41,13 +45,13 @@ public class GameManager : MonoBehaviour
     {
         if (IsDay == false && IsNight == true) 
         {
-            Instantiate(Wolf,Position);
+            Instantiate(Wolf,Position.position,Position.rotation);
         }
     }
     void Update()
     {
         ChangeBackGrounds();
-       
+        TimeUI();
     }
     void ChangeBackGrounds() 
     {
@@ -61,6 +65,18 @@ public class GameManager : MonoBehaviour
         {
             BackGrounds.sprite = NightBackGround;
             TimeCountText.text = "낮까지 남은 시간  :  " + NightSecondCounts;
+        }
+    }
+    void TimeUI() 
+    {
+
+        if (IsDay == true && IsNight == false)
+        {
+            Chim.rotation = Quaternion.Euler(0, 0, 0);
+        }
+        else if (IsDay == false && IsNight == true) 
+        {
+            Chim.rotation = Quaternion.Euler(180, 0 , 0);
         }
     }
     IEnumerator TimeCount()

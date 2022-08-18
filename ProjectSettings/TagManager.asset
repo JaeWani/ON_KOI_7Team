@@ -13,9 +13,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Clock
+  - chim
+  - day and night
   - 
   - 
   - 
@@ -45,4 +45,13 @@ TagManager:
     locked: 0
   - name: Glasss
     uniqueID: 2709064809
+    locked: 0
+  - name: Clock
+    uniqueID: 3411874483
+    locked: 0
+  - name: day and night
+    uniqueID: 305065737
+    locked: 0
+  - name: chim
+    uniqueID: 2982821711
     locked: 0
