@@ -8,7 +8,7 @@ public class MushRoom : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            PlayerMove_1.JumpPower *= 8;
+            PlayerMove.JumpPower *= 4;
         }
     }
 
@@ -16,7 +16,7 @@ public class MushRoom : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            PlayerMove_1.JumpPower = 5;
+            PlayerMove.JumpPower = 250;
         }
     }
 }

@@ -9,7 +9,7 @@ public class Zone : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            if (PlayerMove_1.IsHide == false)
+            if (PlayerMove.IsHide == false)
             {
                 WolfAi.follow = true;
                 transform.parent.GetComponent<WolfAi>().StopMove();
@@ -23,7 +23,7 @@ public class Zone : MonoBehaviour
                     transform.parent.GetComponent<WolfAi>().nextMove = -3;
                 }
             }
-            else if(PlayerMove_1.IsHide == true)
+            if(PlayerMove.IsHide == true)
             {
                 WolfAi.follow = false;
                 transform.parent.GetComponent<WolfAi>().StartMove();
