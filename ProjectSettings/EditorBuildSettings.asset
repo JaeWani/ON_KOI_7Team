@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/YEEJAEWAN/Title.unity
     guid: 8b9885c696d18bf4b8abc88e8fa9d567
   - enabled: 1
+    path: Assets/YEEJAEWAN/StoryScene1.unity
+    guid: 36fe2402f146a9f42886eff8d508e359
+  - enabled: 1
     path: Assets/YEEJAEWAN/JAEWAN.unity
     guid: d6971a1151063ae4fafd2ead0d61677c
   m_configObjects: {}

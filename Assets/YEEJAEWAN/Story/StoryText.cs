@@ -20,11 +20,19 @@ public class StoryText : MonoBehaviour
     public Text Story2;
     public Text Story3;
     public Text Story4;
+    public Text Story5;
+    public Text Story6;
+    public Text Story7;
+    public Text Story8;
 
     public string Story1Text;
     public string Story2Text;
     public string Story3Text;
     public string Story4Text;
+    public string Story5Text;
+    public string Story6Text;
+    public string Story7Text;
+    public string Story8Text;
 
     void Start()
     {
@@ -32,6 +40,10 @@ public class StoryText : MonoBehaviour
         Story2.text = "";
         Story3.text = "";
         Story4.text = "";
+        Story5.text = "";
+        Story6.text = "";
+        Story7.text = "";
+        Story8.text = "";
     }
 
     void Update()
@@ -66,54 +78,42 @@ public class StoryText : MonoBehaviour
             Story3.text = "";
             Story4.text = "";
 
-            StartCoroutine(Fuck());
+      
         }
 
     }
-
-    IEnumerator Fuck()
-    {
-        yield return new WaitForSecondsRealtime(1);
-        StoryTelling.StoryEnd = false;
-        Story4.text = "아 시발";
-        Story3.text = "아 시발";
-        Story4.text = "아 시발";
-        Story1.text = "아 시발 ";
-
-    }
-
     IEnumerator Waiting() 
     {
         Story1End = true;
         yield return new WaitForSecondsRealtime(1);
         Story1Text = "엄";
-        yield return new WaitForSecondsRealtime(0.25f);
+        yield return new WaitForSecondsRealtime(0.1f);
         Story1Text = "엄마";
-        yield return new WaitForSecondsRealtime(0.25f);
+        yield return new WaitForSecondsRealtime(0.1f);
         Story1Text = "엄마와";
-        yield return new WaitForSecondsRealtime(0.25f);
+        yield return new WaitForSecondsRealtime(0.1f);
         Story1Text = "엄마와 함";
-        yield return new WaitForSecondsRealtime(0.5f);
+        yield return new WaitForSecondsRealtime(0.1f);
         Story1Text = "엄마와 함께";
-        yield return new WaitForSecondsRealtime(0.25f);
+        yield return new WaitForSecondsRealtime(0.1f);
         Story1Text = "엄마와 함께 숲";
-        yield return new WaitForSecondsRealtime(0.25f);
+        yield return new WaitForSecondsRealtime(0.1f);
         Story1Text = "엄마와 함께 숲 속";
-        yield return new WaitForSecondsRealtime(0.25f);
+        yield return new WaitForSecondsRealtime(0.1f);
         Story1Text = "엄마와 함께 숲 속에";
-        yield return new WaitForSecondsRealtime(0.25f);
+        yield return new WaitForSecondsRealtime(0.1f);
         Story1Text = "엄마와 함께 숲 속에 살";
-        yield return new WaitForSecondsRealtime(0.25f);
+        yield return new WaitForSecondsRealtime(0.1f);
         Story1Text = "엄마와 함께 숲 속에 살던";
-        yield return new WaitForSecondsRealtime(0.25f);
+        yield return new WaitForSecondsRealtime(0.1f);
         Story1Text = "엄마와 함께 숲 속에 살던 빨";
-        yield return new WaitForSecondsRealtime(0.25f);
+        yield return new WaitForSecondsRealtime(0.1f);
         Story1Text = "엄마와 함께 숲 속에 살던 빨간";
-        yield return new WaitForSecondsRealtime(0.25f);
+        yield return new WaitForSecondsRealtime(0.1f);
         Story1Text = "엄마와 함께 숲 속에 살던 빨간모";
-        yield return new WaitForSecondsRealtime(0.25f);
+        yield return new WaitForSecondsRealtime(0.1f);
         Story1Text = "엄마와 함께 숲 속에 살던 빨간모자";
-        yield return new WaitForSecondsRealtime(0.25f);
+        yield return new WaitForSecondsRealtime(0.1f);
         Story1Text = "엄마와 함께 숲 속에 살던 빨간모자는";
         Story1End2 = true;
         Debug.Log("스토리 1 끝");
@@ -123,31 +123,31 @@ public class StoryText : MonoBehaviour
         Story2End = true;
         yield return new WaitForSeconds(0.5f);
         Story2Text = "어";
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.1f);
         Story2Text = "어느";
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.1f);
         Story2Text = "어느 날 ";
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.1f);
         Story2Text = "어느 날 어";
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.1f);
         Story2Text = "어느 날 어머";
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.1f);
         Story2Text = "어느 날 어머니";
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.1f);
         Story2Text = "어느 날 어머니께";
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.1f);
         Story2Text = "어느 날 어머니께 할";
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.1f);
         Story2Text = "어느 날 어머니께 할머";
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.1f);
         Story2Text = "어느 날 어머니께 할머니";
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.1f);
         Story2Text = "어느 날 어머니께 할머니";
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.1f);
         Story2Text = "어느 날 어머니께 할머니 간";
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.1f);
         Story2Text = "어느 날 어머니께 할머니 간병";
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.1f);
         Story2Text = "어느 날 어머니께 할머니 간병을";
         Story2End2 = true;
         Debug.Log("스토리 2 끝");
@@ -157,19 +157,19 @@ public class StoryText : MonoBehaviour
         Story3End = true;
         yield return new WaitForSeconds(0.5f);
         Story3Text = "부";
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.1f);
         Story3Text = "부탁";
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.1f);
         Story3Text = "부탁받";
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.1f);
         Story3Text = "부탁받게";
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.1f);
         Story3Text = "부탁받게 되";
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.1f);
         Story3Text = "부탁받게 되었";
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.1f);
         Story3Text = "부탁받게 되었어";
-        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(0.1f);
         Story3Text = "부탁받게 되었어요.";
         yield return new WaitForSeconds(0.5f);
         Story3End2 = true;
