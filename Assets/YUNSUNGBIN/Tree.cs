@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class Tree : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static bool appleDrop = false;
+    public void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        if (collision.gameObject.tag == "Player" && PlayerMove.IsHide == false)
+        {
+                appleDrop = true;
+                Debug.Log("true");
+            //if (Input.GetKey(KeyCode.T))
+            //{
+            //}
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnTriggerExit2D(Collider2D collision)
     {
-        
+        appleDrop = false;
     }
 }

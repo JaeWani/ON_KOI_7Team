@@ -5,13 +5,13 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     public float PlayerSpeed = 5;
-    public float JumpPower = 5;
+    public static float JumpPower = 250;
     Rigidbody2D RB;
     SpriteRenderer Spr;
     Animator Anim;
 
     public bool IsGlass = false;
-    public bool IsHide = false;
+    public static bool IsHide = false;
     bool Jumped = false;
     void Start()
     {

@@ -34,6 +34,7 @@ public class WolfAi : MonoBehaviour
     {
         Ai();
         Destroy();
+        AnimationUpdate();
     }
     void Ai()
     {
@@ -49,11 +50,24 @@ public class WolfAi : MonoBehaviour
         }
        
     }
-    // Update is called once per frame
-    void FixedUpdate()
+    
+    void AnimationUpdate()
     {
-        
-        
+        if(nextMove <= -1)
+        {
+            Anim.SetBool("IsRun", true);
+            Anim.SetBool("IsChange", false);
+        }
+        else if(nextMove == 0)
+        {
+            Anim.SetBool("IsRun", false);
+            Anim.SetBool("IsRun2", false);
+        }
+        else if(nextMove >= 1)
+        {
+            Anim.SetBool("IsRun2", true);
+            Anim.SetBool("IsChange", true);
+        }
     }
   
 
