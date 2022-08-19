@@ -223,6 +223,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8751ab35fb944e4e978cb0f36b558ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BackGrounds: {fileID: 435670783}
+  story2: {fileID: 21300000, guid: a18f407ac9a331946874cb985bcf9c32, type: 3}
 --- !u!114 &41449099
 MonoBehaviour:
   m_ObjectHideFlags: 0

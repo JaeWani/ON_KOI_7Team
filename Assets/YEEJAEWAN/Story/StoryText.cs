@@ -48,11 +48,44 @@ public class StoryText : MonoBehaviour
 
         if (StoryTelling.IsStory == true && Story2End2 ==true && Story2End == true && Story3End == false )
             StartCoroutine(Waiting3());
+
+        if (StoryTelling.IsStory2 == true) 
+        {
+            Story1.text = "";
+            Story2.text = "";
+            Story3.text = "";
+            Story4.text = "";
+
+            StoryTelling.IsStory2 = false;
+        }
+
+        if (StoryTelling.StoryEnd == true)
+        {
+            Story1.text = "";
+            Story2.text = "";
+            Story3.text = "";
+            Story4.text = "";
+
+            StartCoroutine(Fuck());
+        }
+
     }
+
+    IEnumerator Fuck()
+    {
+        yield return new WaitForSecondsRealtime(1);
+        StoryTelling.StoryEnd = false;
+        Story4.text = "아 시발";
+        Story3.text = "아 시발";
+        Story4.text = "아 시발";
+        Story1.text = "아 시발 ";
+
+    }
+
     IEnumerator Waiting() 
     {
         Story1End = true;
-        yield return new WaitForSecondsRealtime(0.5f);
+        yield return new WaitForSecondsRealtime(1);
         Story1Text = "엄";
         yield return new WaitForSecondsRealtime(0.25f);
         Story1Text = "엄마";
@@ -123,5 +156,24 @@ public class StoryText : MonoBehaviour
     {
         Story3End = true;
         yield return new WaitForSeconds(0.5f);
+        Story3Text = "부";
+        yield return new WaitForSeconds(0.25f);
+        Story3Text = "부탁";
+        yield return new WaitForSeconds(0.25f);
+        Story3Text = "부탁받";
+        yield return new WaitForSeconds(0.25f);
+        Story3Text = "부탁받게";
+        yield return new WaitForSeconds(0.25f);
+        Story3Text = "부탁받게 되";
+        yield return new WaitForSeconds(0.25f);
+        Story3Text = "부탁받게 되었";
+        yield return new WaitForSeconds(0.25f);
+        Story3Text = "부탁받게 되었어";
+        yield return new WaitForSeconds(0.25f);
+        Story3Text = "부탁받게 되었어요.";
+        yield return new WaitForSeconds(0.5f);
+        Story3End2 = true;
+        Debug.Log("스토리 3 끝");
+        StoryTelling.StoryEnd = true;
     }
 }
