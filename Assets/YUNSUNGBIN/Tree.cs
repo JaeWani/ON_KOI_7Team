@@ -21,10 +21,6 @@ public class Tree : MonoBehaviour
     private void Update()
     {
         Debug.Log(IsCoolTime);
-        if(appleDrop == true)
-        {
-            Instantiate(Apple, tree.position, tree.rotation);
-        }
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {

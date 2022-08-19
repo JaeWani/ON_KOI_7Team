@@ -16,7 +16,10 @@ public class drop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Tree.appleDrop == true)
+        {
+            Instantiate(Apple, Tree.tree.position, Tree.tree.rotation);
+        }
     }
 
     public void OnCollisionEnter2D(Collision2D collision)
