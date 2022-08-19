@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public static int PlayerHP = 3;
 
     [SerializeField]
     RectTransform Chim;
