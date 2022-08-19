@@ -8,6 +8,7 @@ public class PlayerMove : MonoBehaviour
     public float JumpPower = 5;
     Rigidbody2D RB;
     SpriteRenderer Spr;
+    Animator Anim;
 
     public bool IsGlass = false;
     public bool IsHide = false;
@@ -16,6 +17,7 @@ public class PlayerMove : MonoBehaviour
     {
         RB = GetComponent<Rigidbody2D>();
         Spr = GetComponent<SpriteRenderer>();
+        Anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -36,13 +38,19 @@ public class PlayerMove : MonoBehaviour
             RB.velocity = new Vector2(PlayerSpeed, RB.velocity.y); 
         else if (RB.velocity.x < PlayerSpeed * (-1)) 
             RB.velocity = new Vector2(PlayerSpeed * (-1), RB.velocity.y);
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKey(KeyCode.LeftArrow))
         {
             Spr.flipX = false;
+            Anim.SetBool("IsWalk", true);
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow))
+        else if (Input.GetKey(KeyCode.RightArrow))
         {
             Spr.flipX = true;
+            Anim.SetBool("IsWalk", true);
+        }
+        else 
+        {
+            Anim.SetBool("IsWalk", false);
         }
     }
     void Hide() 
