@@ -8,7 +8,7 @@ public class MushRoom : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            PlayerMove.JumpPower *= 4;
+            PlayerMove.JumpPower *= 2;
         }
     }
 
