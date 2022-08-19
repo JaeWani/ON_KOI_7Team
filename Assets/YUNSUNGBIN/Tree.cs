@@ -30,13 +30,11 @@ public class Tree : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            isCollision = true;
             if (IsCoolTime == false)
             {
                 appleDrop = true;
                 StartCoroutine(CoolTime());
             }
-            Debug.Log("true");
         }
     }
 
