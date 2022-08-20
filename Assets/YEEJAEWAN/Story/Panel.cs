@@ -27,8 +27,7 @@ public class Panel : MonoBehaviour
 
 
 
-        if (StoryTelling.IsStory == true )
-        {
+      
             if (StoryTelling.StoryEnd == false)
             {
                 Albedo += 0.001f;
@@ -37,7 +36,7 @@ public class Panel : MonoBehaviour
             {
                 Albedo -= 0.001f;
             }
-        }
+        
       
         GameObject Me = GameObject.Find("Canvas/StoryTelling");
         Color color = Me.GetComponent<Image>().color;
